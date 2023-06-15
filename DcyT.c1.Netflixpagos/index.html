@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Agencia de planes de Netflix</title>
+  </head>
+  <body>
+    <h1>Agencia de planes de Netflix</h1>
+    <form id="formulario">
+      <p>
+        <label for="planA">Cantidad de suscriptores plan A (para 1 TV): </label>
+        <input type="number" id="planA" name="planA" value="0" min="0">
+      </p>
+      <p>
+        <label for="planB">Cantidad de suscriptores plan B (para 2 TVs): </label>
+        <input type="number" id="planB" name="planB" value="0" min="0">
+      </p>
+      <p>
+        <label for="planC">Cantidad de suscriptores plan C (para 5 TVs): </label>
+        <input type="number" id="planC" name="planC" value="0" min="0">
+      </p>
+      <p>
+        <button type="button" onclick="calcular()">Calcular</button>
+      </p>
+    </form>
+    <div id="resultado"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
