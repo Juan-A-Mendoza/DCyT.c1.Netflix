@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recarga de Impresoras</title>
+  <script>
+class Impresora {
+  constructor() {
+    this.precioRecarga = 0;
+  }
+
+  calcularPrecioRecarga() {
+    // Método por defecto para calcular el precio de recarga.
+    // Será reemplazado en las clases derivadas.
+    this.precioRecarga = 0;
+  }
+}
+
+class ImpresoraTinta extends Impresora {
+  constructor(color) {
+    super();
+    this.color = color;
+  }
+
+  calcularPrecioRecarga() {
+    if (this.color === 1) {
+      this.precioRecarga = 20;
+    } else {
+      this.precioRecarga = 25;
+    }
+  }
+}
+
+class ImpresoraLaser extends Impresora {
+  constructor(cantidadToner) {
+    super();
+    this.cantidadToner = cantidadToner;
+  }
+
+  calcularPrecioRecarga() {
+    if (this.cantidadToner === 1) {
+      this.precioRecarga = 50;
+    } else {
+      this.precioRecarga = 30 * this.cantidadToner;
+    }
+  }
+}
+
+// Crear instancias de impresoras
+const impresora1 = new ImpresoraTinta(2); // Impresora de tinta a color
+const impresora2 = new ImpresoraTinta(1); // Impresora de tinta en negro
+const impresora3 = new ImpresoraLaser(1); // Impresora láser con 1 toner
+const impresora4 = new ImpresoraLaser(3); // Impresora láser con 3 toners
+
+// Calcular precios de recarga
+impresora1.calcularPrecioRecarga();
+impresora2.calcularPrecioRecarga();
+impresora3.calcularPrecioRecarga();
+impresora4.calcularPrecioRecarga();
+
+// Mostrar precios de recarga
+console.log("Impresora 1 - Precio de recarga: " + impresora1.precioRecarga + " Bs");
+console.log("Impresora 2 - Precio de recarga: " + impresora2.precioRecarga + " Bs");
+console.log("Impresora 3 - Precio de recarga: " + impresora3.precioRecarga + " Bs");
+console.log("Impresora 4 - Precio de recarga: " + impresora4.precioRecarga + " Bs");
+
+// Calcular porcentaje de impresoras láser recargadas
+const totalImpresoras = 4; // Número total de impresoras
+const numImpresorasLaser = 2; // Número de impresoras láser
+const porcentajeLaserRecargadas = (numImpresorasLaser / totalImpresoras) * 100;
+
+console.log("Porcentaje de impresoras láser recargadas: " + porcentajeLaserRecargadas + "%");
+    
+    // Luego, puedes agregar un evento onLoad para ejecutar el código cuando la página se cargue completamente.
+    window.onload = function() {
+      // Crear instancias de impresoras y calcular precios de recarga
+      const impresora1 = new ImpresoraTinta(2); // Impresora de tinta a color
+      const impresora2 = new ImpresoraTinta(1); // Impresora de tinta en negro
+      const impresora3 = new ImpresoraLaser(1); // Impresora láser con 1 toner
+      const impresora4 = new ImpresoraLaser(3); // Impresora láser con 3 toners
+
+      impresora1.calcularPrecioRecarga();
+      impresora2.calcularPrecioRecarga();
+      impresora3.calcularPrecioRecarga();
+      impresora4.calcularPrecioRecarga();
+
+      // Mostrar precios de recarga en la página
+      document.getElementById("precioImpresora1").textContent = impresora1.precioRecarga + " Bs";
+      document.getElementById("precioImpresora2").textContent = impresora2.precioRecarga + " Bs";
+      document.getElementById("precioImpresora3").textContent = impresora3.precioRecarga + " Bs";
+      document.getElementById("precioImpresora4").textContent = impresora4.precioRecarga + " Bs";
+
+      // Calcular porcentaje de impresoras láser recargadas
+      const totalImpresoras = 4; // Número total de impresoras
+      const numImpresorasLaser = 2; // Número de impresoras láser
+      const porcentajeLaserRecargadas = (numImpresorasLaser / totalImpresoras) * 100;
+
+      document.getElementById("porcentajeLaserRecargadas").textContent = porcentajeLaserRecargadas + "%";
+    };
+  </script>
+</head>
+<body>
+  <h1>Recarga de Impresoras</h1>
+  
+  <h2>Precios de Recarga</h2>
+  <ul>
+    <li>Impresora 1: <span id="precioImpresora1"></span></li>
+    <li>Impresora 2: <span id="precioImpresora2"></span></li>
+    <li>Impresora 3: <span id="precioImpresora3"></span></li>
+    <li>Impresora 4: <span id="precioImpresora4"></span></li>
+  </ul>
+  
+  <h2>Porcentaje de Impresoras Láser Recargadas</h2>
+  <p><span id="porcentajeLaserRecargadas"></span></p>
+</body>
+</html>
